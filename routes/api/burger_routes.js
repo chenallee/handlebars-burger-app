@@ -42,7 +42,8 @@ router.put('/burgers/:id', (req, res) => {
 });
 
 /* DELETE => Delete Burger */
-router.delete('burgers/:id', (req, res) => {
+router.delete('/burgers/:id', (req, res) => {
+  //console.log(req.params.id);
   deleteBurger(req.params.id)
     .then(burgerdata => {
       if (burgerdata.code === 404){ //if query connected but nothing deleted

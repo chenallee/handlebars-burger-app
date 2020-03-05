@@ -59,6 +59,7 @@ const updateBurger = (burgerObj, burgerId) => {
 // delete burger
 const deleteBurger = burgerId => {
   return new Promise ((resolve, reject) => {
+    //console.log(burgerId);
     connection.query('DELETE FROM burgers WHERE id = ?', [burgerId], (err, burgerdata) => {
       if (err) {
         console.log(err);
