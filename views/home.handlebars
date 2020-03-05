@@ -1,0 +1,67 @@
+{{!-- Add Burger Row --}}
+<div class="row mb-5">
+  <div class="col-12 d-flex flex-column align-items-center">
+    <h2 class="">Add Burger</h2>
+    <form id="burger-form" class="form-inline">
+      <div class="form-group mb-0">
+        <input type="text" class="form-control" placeholder="Burger Name" name="burger-name">
+      </div>
+      <button type="submit" class="btn btn-outline-success">Submit 🍔</button>
+    </form>
+  </div>
+
+</div>
+
+{{!-- Burgers Undevoured and Devoured Cards --}}
+<div class="row">
+  <div class="col-12 col-md-6">
+
+    <div class="card mb-5">
+      <h3 class="card-header">Burgers to Devour</h3>
+      <ul class="list-group-flush">
+        {{!-- loop through burgers from handlebars and print of burgers that are NOT devoured --}}
+        {{#each burgers}}
+        {{#unless this.devoured}}
+         <li class="list-group-item d-flex  align-items-center align-center">
+           {{!-- delete burger  --}}
+           <button type="button" class="btn btn-outline-light mr-3 deleteBurger" data-burgerid="{{this.id}}"><i class="fas fa-times"></i></button>
+           {{!-- burger name --}}
+           <h4 class="">
+             {{this.burger_name}}
+           </h4>
+           {{!-- devour burger --}}
+            <button class="btn btn-success ml-auto devourBurger" data-burgerid="{{this.id}}">
+              Devour!
+            </button>
+         </li>
+         {{/unless}}
+         {{/each}}
+      </ul>
+    </div>
+
+  </div>
+  <div class="col-12 col-md-6">
+        <div class="card mb-5">
+      <h3 class="card-header">Burgers Devoured</h3>
+      <ul class="list-group-flush">
+        {{!-- loop through burgers from handlebars and print of burgers that are NOT devoured --}}
+        {{#each burgers}}
+        {{#if this.devoured}}
+         <li class="list-group-item d-flex  align-items-center align-center">
+           {{!-- delete burger  --}}
+           <button type="button" class="btn btn-outline-light mr-3 deleteBurger" data-burgerid="{{this.id}}"><i class="fas fa-times"></i></button>
+           {{!-- burger name --}}
+           <h4 class="">
+             {{this.burger_name}}
+           </h4>
+           {{!-- undevour burger --}}
+            <button class="btn btn-warning ml-auto unDevourBurger" data-burgerid="{{this.id}}">
+              UNDevour?
+            </button>
+         </li>
+         {{/if}}
+         {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

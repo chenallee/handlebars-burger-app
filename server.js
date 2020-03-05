@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.engine('handlebars', expressHandlebars({ defaultLayout: 'main '})); //how to describe this
+app.engine('handlebars', expressHandlebars({ defaultLayout: 'main'})); //how to describe this
 app.set('view engine', 'handlebars'); //how to describe this
 
 // set up an turn on routes
