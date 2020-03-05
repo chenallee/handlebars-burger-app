@@ -4,11 +4,10 @@ const mysql = require('mysql');
 // load env variables
 require('dotenv').config();
 
-//check process.env.coolname for checking production VS development check
 
 // create connection to DB: if deployed on heroku, connect on there, otherwise set up localhost
-const connection = process.env.DEPLOYED_URL
-  ? mysql.createConnection(process.env.DEPLOYED_URL)
+const connection = process.env.JAWSDB_URL
+  ? mysql.createConnection(process.env.JAWSDB_URL)
   : mysql.createConnection({
     host: 'localhost',
     port: 3306,
